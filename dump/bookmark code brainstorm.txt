@@ -1,0 +1,25 @@
+header
+
+pagewrap
+
+sidebar
+  list cats and colls
+
+
+main content
+  bookmark table
+
+    display all by default + 3 random at top
+
+    if (cat = category)
+      include add-link-form.php
+      include filter-by-tag.php
+      show category table
+      
+
+    if (coll = collection)
+      include add-link-form.php
+      include filter-by-tag.php
+      show collection table
+  
+  
