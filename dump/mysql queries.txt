@@ -1,0 +1,70 @@
+SELECT t.tagID, t.tagName
+            FROM master m, bookmarks b, tags t, tag_linker tl
+            WHERE tl.tagLinkerTagID = t.tagID
+            AND m.masterBMID = b.bmID
+            AND m.masterBMID = 1
+
+
+EXPLAIN 
+SELECT m.*, b.*, t.*, ca.*, co.*
+    FROM master m, bookmarks b, tags t, tag_linker tl, categories ca, collections co
+    WHERE m.masterBMID = b.bmID
+    AND m.masterTagLinkerID = t.tagID
+    GROUP BY m.masterID
+
+
+
+INSERT INTO `bookmarks` (`bmTitle`,`bmURL`,`bmShortDesc`,`bmNotes`) VALUES ("Francesca Aguirre","ERX05KME2NC","enim non nisi. Aenean eget","purus. Duis elementum, dui quis accumsan convallis, ante lectus convallis"),("Wayne Wallace","LAJ26AYQ7YQ","Vivamus nisi. Mauris nulla. Integer","rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida"),("Piper Graves","GIE23AQS8TH","erat. Etiam vestibulum massa rutrum","arcu ac orci. Ut semper pretium neque. Morbi quis urna."),("Nita Barron","QAH36BPX5IZ","et pede. Nunc sed orci","lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet"),("Leroy Cotton","HAQ21JNF8KP","purus sapien, gravida non, sollicitudin","sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique"),("Jayme Nielsen","BKT65PNZ4GE","Nunc quis arcu vel quam","orci luctus et ultrices posuere cubilia Curae; Donec tincidunt. Donec"),("Isabelle Bolton","KNC56HIP6AM","risus. Morbi metus. Vivamus euismod","dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis"),("Vivian Mack","VXO43MEL9DO","sem molestie sodales. Mauris blandit","tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit"),("Merritt Robles","QNL15JLC2JK","dapibus quam quis diam. Pellentesque","velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,"),("Beverly Simon","YIL42DRG7NS","nisi sem semper erat, in","orci, consectetuer euismod est arcu ac orci. Ut semper pretium"),("Astra Moses","DIF44XNA3VN","Curabitur sed tortor. Integer aliquam","Vivamus non lorem vitae odio sagittis semper. Nam tempor diam"),("Kasper Guerrero","PPO10GTR9FN","iaculis aliquet diam. Sed diam","sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus"),("Clark Porter","ZIN32QEG0MN","eget mollis lectus pede et","venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien."),("Leroy Williamson","PFB96BVD9TS","tincidunt dui augue eu tellus.","sed orci lobortis augue scelerisque mollis. Phasellus libero mauris, aliquam"),("Hoyt Webster","NLD85XWR9DL","diam. Proin dolor. Nulla semper","senectus et netus et malesuada fames ac turpis egestas. Fusce"),("Jenna James","KLG04NNY6CK","vitae odio sagittis semper. Nam","facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant"),("Coby Richardson","YHW92JIA5WU","Donec est. Nunc ullamcorper, velit","Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum"),("Cheryl Barber","KGD26FCM4VY","ut ipsum ac mi eleifend","Sed et libero. Proin mi. Aliquam gravida mauris ut mi."),("Lara Trujillo","RQD12KWI6FQ","adipiscing ligula. Aenean gravida nunc","tellus, imperdiet non, vestibulum nec, euismod in, dolor. Fusce feugiat."),("Seth Berger","NCF55RUR4DW","ornare egestas ligula. Nullam feugiat","tristique pharetra. Quisque ac libero nec ligula consectetuer rhoncus. Nullam")
+
+
+
+INSERT INTO `categories` (`category`) VALUES ("Liechtenstein"),("Latvia"),("Sri Lanka"),("Lithuania"),("Tokelau"),("Laos"),("Thailand"),("Åland Islands"),("Belize"),("Ukraine"),("Equatorial Guinea"),("Micronesia"),("Somalia"),("Cyprus"),("Netherlands"),("Montserrat"),("Heard Island and Mcdonald Islands"),("Ecuador"),("Palestine, State of"),("Swaziland"),("Armenia"),("Ethiopia"),("Ukraine"),("Grenada"),("United States"),("Burkina Faso"),("Namibia"),("Ghana"),("Mauritius"),("Taiwan"),("Bahamas"),("Sudan"),("Jamaica"),("Virgin Islands, United States"),("Hong Kong"),("Libya"),("Marshall Islands"),("Guinea"),("Ecuador"),("Macao"),("Gambia"),("French Polynesia"),("Namibia"),("Indonesia"),("Puerto Rico"),("India"),("New Caledonia"),("Aruba"),("Namibia"),("Lebanon"),("Curaçao"),("Norway"),("United Arab Emirates"),("Lesotho"),("Guinea-Bissau"),("Mauritania"),("United Kingdom (Great Britain)"),("Korea, North"),("Albania"),("Ukraine"),("Guam"),("Bangladesh"),("Guyana"),("Palestine, State of"),("Solomon Islands"),("India"),("Tuvalu"),("Uganda"),("Guadeloupe"),("Malaysia"),("South Africa"),("Uruguay"),("Uzbekistan"),("Liberia"),("Congo (Brazzaville)"),("Burkina Faso"),("Tanzania"),("Macedonia"),("Jamaica"),("Guyana"),("Austria"),("Korea, South"),("Aruba"),("Czech Republic"),("Guinea-Bissau"),("Azerbaijan"),("Saint Pierre and Miquelon"),("Turks and Caicos Islands"),("South Africa"),("United States"),("Canada"),("Timor-Leste"),("Somalia"),("Bolivia"),("Wallis and Futuna"),("Swaziland"),("Afghanistan"),("South Sudan"),("Cape Verde"),("Barbados")
+
+
+
+
+INSERT INTO `collections` (`collection`) VALUES ("Cayman Islands"),("Montenegro"),("Central African Republic"),("Barbados"),("Nepal"),("Syria"),("Wallis and Futuna"),("South Georgia and The South Sandwich Islands"),("Lebanon"),("Uruguay"),("Poland"),("Sao Tome and Principe"),("Belgium"),("Barbados"),("Liechtenstein"),("Croatia"),("Ukraine"),("Cyprus"),("Nigeria"),("Bahamas"),("Albania"),("Djibouti"),("Ghana"),("Burundi"),("San Marino"),("Algeria"),("Virgin Islands, British"),("Wallis and Futuna"),("Anguilla"),("Guadeloupe"),("Sudan"),("Marshall Islands"),("Congo, the Democratic Republic of the"),("Paraguay"),("Saint Pierre and Miquelon"),("Tajikistan"),("Azerbaijan"),("Laos"),("United Arab Emirates"),("Guadeloupe"),("Saint Lucia"),("Yemen"),("Hong Kong"),("Pakistan"),("Montserrat"),("Moldova"),("Kiribati"),("Angola"),("Northern Mariana Islands"),("Afghanistan"),("Madagascar"),("Anguilla"),("Luxembourg"),("United States"),("Armenia"),("Venezuela"),("Montserrat"),("San Marino"),("New Zealand"),("Greenland"),("Spain"),("Wallis and Futuna"),("Myanmar"),("Malta"),("New Zealand"),("Nauru"),("Thailand"),("Malaysia"),("Norway"),("Eritrea"),("Finland"),("Trinidad and Tobago"),("Curaçao"),("China"),("Tunisia"),("Bangladesh"),("Mongolia"),("Sudan"),("Indonesia"),("Saudi Arabia"),("Bolivia"),("Colombia"),("Luxembourg"),("Cape Verde"),("Virgin Islands, United States"),("Georgia"),("France"),("Lithuania"),("Saint Pierre and Miquelon"),("Christmas Island"),("Paraguay"),("Paraguay"),("Bouvet Island"),("Montserrat"),("Mayotte"),("Russian Federation"),("Israel"),("Tanzania"),("Oman"),("Armenia")
+
+
+
+
+INSERT INTO `tags` (`tagName`) VALUES ("16290511-4712"),("16891206-9799"),
+("16901103-3173"),("16090706-1113"),("16270718-5852"),("16830806-7530"),
+("16431213-0406"),("16371230-0973"),("16781226-8402"),("16940304-8722"),
+("16350502-2834"),("16951212-1832"),("16241121-1663"),("16621205-7142"),
+("16280216-8159"),("16161009-4763"),("16150427-5866"),("16741226-8752"),
+("16681210-2538"),("16980526-7383"),("16950519-6189"),("16450725-2544"),
+("16960410-9141"),("16800330-5409"),("16240804-9886"),("16220404-6318"),
+("16660229-0915"),("16501012-9848"),("16730423-8756"),("16690328-1712"),
+("16131216-9327"),("16581223-6486"),("16641111-2672"),("16530514-6093"),
+("16570101-8870"),("16770611-6063"),("16000304-8725"),("16060307-0269"),
+("16410920-3705"),("16620321-9867"),("16790127-3842"),("16761003-6134"),
+("16710618-7359"),("16141204-6656"),("16331213-9177"),("16900802-1538"),
+("16230506-8070"),("16260329-3974"),("16270703-2385"),("16520407-7878"),
+("16950630-8197"),("16611204-7680"),("16570806-9306"),("16771103-6405"),
+("16860301-6828"),("16260819-4888"),("16080608-2871"),("16620219-6199"),
+("16011002-0369"),("16190821-7902"),("16770627-1595"),("16311124-7114"),
+("16800805-5934"),("16891106-0260"),("16070218-4904"),("16210821-7528"),
+("16240419-4827"),("16291214-9560"),("16951014-8753"),("16831008-7674"),
+("16201125-7603"),("16271010-9386"),("16580809-4469"),("16161110-4447"),
+("16290219-6472"),("16021116-1559"),("16480919-5649"),("16660211-7431"),
+("16191228-5481"),("16900616-1641"),("16441118-4650"),("16180406-1164"),
+("16090522-7559"),("16220425-4318"),("16600907-5000"),("16340920-7937"),
+("16931023-7616"),("16420520-6909"),("16060921-4069"),("16660114-8049"),
+("16090523-2674"),("16231111-5550"),("16630919-6423"),("16620618-2047"),
+("16460711-2416"),("16521123-2490"),("16330408-5339"),("16840701-9218"),
+("16310824-5949"),("16630624-6734")
+
+
+
+INSERT INTO `tag_linker` (`tagLinkerTagID`,`tagLinkerCatID`) VALUES (57,86),(65,74),(86,81),(46,100),(96,59),(92,25),(69,73),(98,86),(17,75),(6,38),(16,35),(46,63),(40,19),(64,70),(17,33),(78,13),(81,25),(82,29),(45,11),(82,34),(49,63),(88,83),(78,12),(95,16),(60,37),(26,45),(17,81),(67,98),(68,17),(61,84),(79,53),(33,10),(24,85),(24,55),(83,43),(37,22),(66,98),(47,5),(40,20),(76,7),(28,89),(83,27),(40,98),(78,68),(58,7),(84,94),(21,35),(82,81),(31,77),(24,36)
+
+
+
+INSERT INTO `tag_linker` (`tagLinkerTagID`,`tagLinkerCollID`) VALUES (61,46),(46,47),(52,36),(75,13),(24,98),(48,24),(40,100),(67,69),(51,32),(38,57),(67,63),(13,95),(42,68),(92,93),(44,43),(9,57),(62,80),(22,69),(57,81),(13,33),(97,27),(22,69),(97,67),(77,84),(80,14),(21,43),(6,60),(33,75),(36,55),(26,64),(81,51),(2,21),(1,92),(96,7),(84,95),(37,88),(81,60),(85,72),(86,77),(42,93),(3,69),(71,79),(95,64),(33,73),(1,46),(6,46),(86,83),(25,46),(3,44),(24,9)
+
+
+
+
+INSERT INTO `master` (`masterBMID`,`masterTagLinkerID`,`masterCatID`) VALUES (12,65,68),(7,25,70),(7,70,85),(2,95,35),(9,27,26),(11,4,33),(20,96,73),(20,43,38),(13,12,85),(19,78,57),(17,94,8),(24,49,95),(3,70,13),(11,9,62),(14,85,41),(1,6,77),(5,82,86),(2,47,68),(20,63,25),(9,32,19),(6,4,19),(18,16,50),(2,54,89),(2,49,23),(21,48,81),(20,72,20),(15,22,62),(24,53,17),(16,96,16),(4,33,59),(15,96,66),(4,52,36),(1,62,49),(15,11,2),(19,74,46),(23,85,63),(22,43,4),(20,13,29),(23,57,47),(17,5,12),(20,37,6),(21,19,11),(8,39,73),(16,19,87),(6,12,40),(22,40,35),(2,76,50),(11,39,84),(13,21,85),(23,57,83),(8,62,84),(21,36,46),(22,90,82),(23,79,15),(24,89,38),(12,92,61),(12,47,82),(11,78,14),(9,68,56),(5,30,90),(18,93,58),(12,21,55),(17,74,94),(11,93,86),(18,13,5),(4,89,99),(20,53,50),(22,69,80),(10,77,1),(19,26,84),(15,26,55),(15,83,59),(7,79,90),(19,63,40),(4,39,46),(21,82,92),(22,23,78),(16,98,4),(16,43,75),(8,78,45),(4,59,42),(11,100,45),(9,45,43),(19,52,81),(13,33,4),(11,12,24),(4,71,89),(11,64,91),(12,53,28),(14,41,38),(20,86,69),(15,75,37),(9,2,42),(3,73,73),(21,30,98),(5,44,33),(4,47,79),(10,44,60),(14,77,32),(19,88,48)
+
